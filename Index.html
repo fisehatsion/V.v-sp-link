@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yafet's Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+        .quiz-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 70%;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+        .hidden {
+            display: none;
+        }
+        .divider {
+            color: blue;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quiz1" class="quiz-container">
+        <h3>Question 1</h3>
+        <p>Are you afraid yafet?</p>
+        <input type="text" id="input1" placeholder="Type yes or no...">
+        <button onclick="checkQuestion1()">Submit</button>
+        <div id="output1" class="output"></div>
+    </div>
+
+    <div id="quiz2" class="quiz-container hidden">
+        <h3>Question 2</h3>
+        <p>Answer good or bad</p>
+        <p>When we continue is this good or bad?</p>
+        <input type="text" id="input2" placeholder="Type good or bad...">
+        <button onclick="checkQuestion2()">Submit</button>
+        <div id="output2" class="output"></div>
+    </div>
+
+    <script>
+        function checkQuestion1() {
+            // Get input, make it lowercase, and remove spaces (just like Python)
+            let response = document.getElementById("input1").value.toLowerCase().trim();
+            let output = document.getElementById("output1");
+            let nextQuiz = document.getElementById("quiz2");
+
+            if (response === "no") {
+                output.style.color = "green";
+                output.innerHTML = "good you are sigma boy";
+                // Show the next question
+                nextQuiz.classList.remove("hidden");
+            } else if (response === "yes") {
+                output.style.color = "blue";
+                output.innerHTML = "do not be afraid of any thing";
+                // Show the next question
+                nextQuiz.classList.remove("hidden");
+            } else {
+                output.style.color = "red";
+                output.innerHTML = "i am not kidding say yes or no or i will repait it <br><span class='divider'>//////////////////////////////</span>";
+            }
+        }
+
+        function checkQuestion2() {
+            let response = document.getElementById("input2").value.toLowerCase().trim();
+            let output = document.getElementById("output2");
+
+            if (response === "good") {
+                output.style.color = "green";
+                output.innerHTML = "thank you";
+            } else if (response === "bad") {
+                output.style.color = "orange";
+                output.innerHTML = "tell me the bad tink in class";
+            } else {
+                output.style.color = "red";
+                output.innerHTML = "i am not joking again <br> -------------------------";
+            }
+        }
+    </script>
+
+</body>
+</html>
